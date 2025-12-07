@@ -48,7 +48,10 @@ export default function RootLayout({
       <head>
         {/* BROWSER COMPATIBILITY & RENDERING HINTS */}
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
 
         {/* PERFORMANCE & CACHING */}
         <meta httpEquiv="Cache-Control" content="public, max-age=3600" />
@@ -79,19 +82,19 @@ export default function RootLayout({
           }
         };
       }
-      // Ensure Tailwind classes load properly
-      if (document.documentElement.style) {
-        document.documentElement.style.colorScheme = 'light';
-      }
     `,
           }}
         />
       </head>
-      <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
+      <body
+        className={`${inter.className} bg-white text-gray-900 antialiased overflow-x-hidden`}
+      >
         <Header />
 
         {/* MAIN CONTENT */}
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen w-full overflow-x-hidden">
+          {children}
+        </main>
 
         {/* FOOTER */}
         <Footer />

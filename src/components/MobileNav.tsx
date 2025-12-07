@@ -43,7 +43,6 @@ export default function MobileNav() {
           <Menu size={28} className="text-green-600" />
         )}
       </button>
-
       {/* FULL SCREEN MENU */}
       {open && (
         <>
@@ -51,20 +50,23 @@ export default function MobileNav() {
           <div className="fixed inset-0 bg-black/50 z-40" onClick={closeMenu} />
 
           {/* Menu Panel */}
-          <nav className="fixed top-0 right-0 bottom-0 w-80 bg-white z-50 flex flex-col shadow-2xl overflow-y-auto">
+          <nav className="fixed top-0 right-0 bottom-0 w-screen max-w-sm bg-white z-50 flex flex-col shadow-2xl overflow-y-auto overflow-x-hidden">
             {/* Header */}
             <div className="flex justify-between items-center p-6 border-b border-gray-100 sticky top-0 bg-white">
-              <h2 className="text-2xl font-black text-green-600">CARS ABEG</h2>
+              <h2 className="text-2xl font-black text-green-600 truncate">
+                CARS ABEG
+              </h2>
               <button
                 onClick={closeMenu}
-                className="p-1 rounded-lg hover:bg-gray-100"
+                className="p-1 rounded-lg hover:bg-gray-100 flex-shrink-0"
               >
                 <X size={28} />
               </button>
             </div>
 
             {/* Navigation Links */}
-            <div className="flex-1 py-6">
+            <div className="flex-1 py-6 w-full">
+              {" "}
               {/* Home */}
               <Link
                 href="/"
@@ -74,7 +76,6 @@ export default function MobileNav() {
                 <Home size={22} />
                 Home
               </Link>
-
               {/* Browse Cars */}
               <Link
                 href="/inventory"
@@ -84,7 +85,6 @@ export default function MobileNav() {
                 <Car size={22} />
                 Browse Cars
               </Link>
-
               {/* Sell Menu */}
               <div>
                 <button
@@ -123,7 +123,6 @@ export default function MobileNav() {
                   </div>
                 )}
               </div>
-
               {/* Learn Menu */}
               <div>
                 <button
@@ -162,7 +161,6 @@ export default function MobileNav() {
                   </div>
                 )}
               </div>
-
               {/* Support Menu */}
               <div>
                 <button
@@ -205,11 +203,11 @@ export default function MobileNav() {
             </div>
 
             {/* Primary CTA */}
-            <div className="p-6 border-t border-gray-100 sticky bottom-0 bg-white">
+            <div className="p-6 border-t border-gray-100 sticky bottom-0 bg-white w-full">
               <Link
                 href="/sell"
                 onClick={closeMenu}
-                className="flex items-center justify-center gap-2 w-full bg-green-600 text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-all shadow-lg"
+                className="flex items-center justify-center gap-2 w-full bg-green-600 text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-all shadow-lg whitespace-nowrap"
               >
                 <DollarSign size={20} />
                 Sell Now
@@ -217,12 +215,12 @@ export default function MobileNav() {
             </div>
 
             {/* Footer */}
-            <p className="text-center text-gray-500 font-semibold text-xs pb-4 px-4">
+            <p className="text-center text-gray-500 font-semibold text-xs pb-4 px-4 w-full">
               Made in Nigeria • For Nigerians
             </p>
           </nav>
         </>
-      )}
+      )}{" "}
     </>
   );
 }
